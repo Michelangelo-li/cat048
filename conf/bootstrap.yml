@@ -1,0 +1,23 @@
+svcId: cat062_parse
+svcVer: 0.1
+svcIp: 172.26.1.3
+
+sourceKafka:
+  bootstrapServers: 172.27.1.1:59092,172.27.1.2:59092,172.27.1.3:59092
+  topic: exchange-topic-atcs_track_cat062
+  clientId: cat06-parse-group-0408
+  acks: all
+  bufferMemory: 134217728
+  retries: 3
+  batchSize: 20971520
+  lingerMs: 100
+  requestTimeoutMs: 2000
+  retryBackoffMs: 500
+  maxInFlightRequestPerConnection: 1
+  idempotence: true
+  maxRequestSize: 21457280
+  securityProtocol: SASL_PLAINTEXT
+  saslMechanism: SCRAM-SHA-512
+  saslJaasModule: org.apache.kafka.common.security.scram.ScramLoginModule
+  username: admin                     #
+  password: admin-uqhGyAvw1W9dhAOO
