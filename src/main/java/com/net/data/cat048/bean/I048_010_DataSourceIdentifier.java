@@ -9,20 +9,20 @@ import lombok.Data;
  */
 @Data
 public class I048_010_DataSourceIdentifier {
-    private int sAC;
+    private int SAC;
 
-    private int sIC;
+    private int SIC;
 
     public static final int length = 2;
     //{"sAC":22,"sIC":101}
 
     public I048_010_DataSourceIdentifier(int[] data, int index) {
-        sAC = data[index];
-        sIC = data[index + 1];
+        SAC = data[index];
+        SIC = data[index + 1];
     }
 
     @Override
     public String toString() {
-        return sAC + "," + sIC;
+        return SAC + "," + SIC;
     }
 }

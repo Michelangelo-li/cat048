@@ -24,7 +24,6 @@ public class CAT048ParseTestMain {
 //        for (int i = 0; i < ints.length; i++) {
 //            System.out.print(ints[i]+" ");
 //        }
-        System.out.println();
         try {
             CAT048Data cat048Data = new CAT048Data(ints, 0, cat048KafkaMsg.getDataLength());
             System.out.println(JSON.toJSONString(cat048Data));
@@ -96,18 +95,9 @@ public class CAT048ParseTestMain {
 //        String s1 = "220010f61665022a3420e08840408000";
 //                   220010f61665022a3420e08840408000
 //30003cffe10216652a3407a88111d3f40a3204b5e02004c07807d810b231c39ce003bac800316c000040fffb37286004ed50dc8a5931bff4006020f5
-
-
-
 //        300016fe16652a340848497ed469032b018ce04606bc
-//
-//        String s2 = "220010f61665022a3420e0884040800030003cffe10216652a";
-//        String s = "300016fe16652a340848497ed469032b018ce04606bc";
-//        String s = "30003cffe10216652a3ba0a88ba3a0130888057ce01603bf78158a10b231c37e2003b0100030a4018040fe13ff4cffecf250a1ba2f337ff7fd6020";
-//        String s = "30003cffe10216652a3b86a86eb893640644041a";
-        // 250 出问题
-        String s1 = "30003cffe10216652a34aba8347c25e201c202fae01203c678119d0c54f6cf6ca0038f700030a4000040fff709323ffcc750bd2a59283dcfb66020f5";
-        String s = "300016fe16652a34f5486b5d4b0005490294e04a06c2";
-        System.out.println(parseStr(s));
+        String s2= "300016fe16652a340848497ed469032b018ce04606bc";
+        System.out.println(parseStr(s2));
+
     }
 }

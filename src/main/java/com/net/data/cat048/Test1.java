@@ -16,8 +16,9 @@ public class Test1 {
     @Test
     public void test1() {
         // 153 1001 1001  1001 1000
-        int[] data = new int[]{31, 153, 62};
+//        int[] data = new int[]{31, 153, 0};
 //        int[] data = new int[]{31,152};
+        int[] data = new int[]{72};
         //FOE_FRI":0,"TST":1,"ERR":0,"ME":1,"XPP":0,"Mi":1}
         I048_020_TargetReportDescriptor i048_020_targetReportDescriptor = new I048_020_TargetReportDescriptor(data, 0);
 

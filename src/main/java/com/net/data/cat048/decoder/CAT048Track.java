@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 public class CAT048Track {
 
-//    I048_0_MessageType i048_0_messageType;
+    //    I048_0_MessageType i048_0_messageType;
     I048_010_DataSourceIdentifier i048_010_dataSourceIdentifier;
     I048_020_TargetReportDescriptor i048_020_targetReportDescriptor;
     I048_030_WarningOrErrorConditions i048_030_warningOrErrorConditions;
@@ -75,11 +75,11 @@ public class CAT048Track {
         } while ((oByte & 0x01) == 0x01);
 
 
-        System.out.print("existedItems:");
-        for (Integer b :
-                existedItems) {
-            System.out.print(b + " ");
-        }
+//        System.out.print("existedItems:");
+//        for (Integer b :
+//                existedItems) {
+//            System.out.print(b + " ");
+//        }
         //oByte的最后一位为1 说明obyte还是fspec
         ////00000001=0x01 只要oByte的最后一位为1就==，就继续
 
@@ -90,59 +90,42 @@ public class CAT048Track {
             switch (item) {
                 case 10:
                     // currentIndex = 4
-                    System.out.println("10 data[cur]"+currentIndex);
                     i048_010_dataSourceIdentifier = new I048_010_DataSourceIdentifier(data, currentIndex);
-                    System.out.println("创建10成功");
                     currentIndex += I048_010_DataSourceIdentifier.length;
                     break;
                 case 140:
-                    System.out.println("140 data[cur]"+currentIndex);
                     i048_140_timeOfDay = new I048_140_TimeOfDay(data, currentIndex);
-                    System.out.println("创建140成功");
                     currentIndex += I048_140_TimeOfDay.length;
                     break;
                 case 20:
-                    System.out.println("20 data[cur]"+currentIndex);
                     i048_020_targetReportDescriptor = new I048_020_TargetReportDescriptor(data, currentIndex);
-                    System.out.println("创建20成功");
                     currentIndex += I048_020_TargetReportDescriptor.length;
                     break;
                 case 40:
-                    System.out.println("40 data[cur]"+currentIndex);
                     i048_040_measuredPositionInPolarCo_ordinates = new I048_040_MeasuredPositionInPolarCo_ordinates(data, currentIndex);
-                    System.out.println("创建40成功");
                     currentIndex += I048_040_MeasuredPositionInPolarCo_ordinates.length;
                     break;
                 case 70:
-                   System.out.println("70 data[cur]"+currentIndex);
                     i048_070_mode3ACodeInOctalRepresentation = new I048_070_Mode3ACodeInOctalRepresentation(data, currentIndex);
-                    System.out.println("创建70成功");
                     currentIndex += I048_070_Mode3ACodeInOctalRepresentation.length;
                     break;
                 case 90:
-                   System.out.println("90 data[cur]"+currentIndex);
                     i048_090_flightLevelInBinaryRepresentation = new I048_090_FlightLevelInBinaryRepresentation(data, currentIndex);
-                   System.out.println("创建90成功");
                     currentIndex += I048_090_FlightLevelInBinaryRepresentation.length;
                     break;
                 case 130:
-                    System.out.println("130 data[cur]"+currentIndex);
                     i048_130_radarPlotCharacteristics = new I048_130_RadarPlotCharacteristics(data, currentIndex);
-                    System.out.println("创建130成功");
                     currentIndex += I048_130_RadarPlotCharacteristics.length;
                     break;
                 case 220:
-                    System.out.println("220 data[cur]"+currentIndex);
                     i048_220_aircraftAddress = new I048_220_AircraftAddress(data, currentIndex);
                     currentIndex += I048_220_AircraftAddress.length;
                     break;
                 case 240:
-                    System.out.println("240 data[cur]"+currentIndex);
                     i048_240_aircraftIdentification = new I048_240_AircraftIdentification(data, currentIndex);
                     currentIndex += I048_240_AircraftIdentification.length;
                     break;
                 case 250:
-                    System.out.println("250 data[cur]"+currentIndex);
                     i048_250_modeSMBData = new I048_250_ModeSMBData(data, currentIndex);
                     currentIndex += I048_250_ModeSMBData.length;
                     break;
@@ -187,12 +170,11 @@ public class CAT048Track {
                     currentIndex += I048_120_RadialDopplerSpeed.length;
                     break;
                 case 230:
-                    System.out.println("130 data[cur]"+currentIndex);
                     i048_230_communicationsACASCapabilityAndFlightStatus = new I048_230_CommunicationsACASCapabilityAndFlightStatus(data, currentIndex);
                     currentIndex += I048_230_CommunicationsACASCapabilityAndFlightStatus.length;
                     break;
                 case 260:
-//                    i048_260_acasResolutionAdvisoryReport = new I048_260_ACASResolutionAdvisoryReport(data, currentIndex);
+                    i048_260_acasResolutionAdvisoryReport = new I048_260_ACASResolutionAdvisoryReport(data, currentIndex);
                     currentIndex += I048_260_ACASResolutionAdvisoryReport.length;
                     break;
                 case 55:
@@ -202,14 +184,15 @@ public class CAT048Track {
                 case 50:
                     i048_050_mode_2CodeInOctalRepresentation = new I048_050_Mode_2CodeInOctalRepresentation(data, currentIndex);
                     currentIndex += I048_050_Mode_2CodeInOctalRepresentation.length;
-
+                    break;
                 case 65:
                     i048_065_mode1CodeConfidenceIndicator = new I048_065_Mode1CodeConfidenceIndicator(data, currentIndex);
                     currentIndex += I048_065_Mode1CodeConfidenceIndicator.length;
+                    break;
                 case 60:
                     i048_060_mode2CodeConfidenceIndicator = new I048_060_Mode2CodeConfidenceIndicator(data, currentIndex);
                     currentIndex += I048_060_Mode2CodeConfidenceIndicator.length;
-
+                    break;
                 case -1:
                     currentIndex += data[currentIndex];
                     break;
